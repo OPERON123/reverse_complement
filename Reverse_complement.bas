@@ -1,5 +1,4 @@
-Attribute VB_Name = "Module1"
-Function reverse_complement(seq)
+Function complement(seq)
     
     Dim seq_out As String
     
@@ -15,13 +14,23 @@ Function reverse_complement(seq)
         ElseIf Mid(seq, i, 1) = "c" Then
             seq_out = seq_out + "g"
         
-        Else
+        ElseIf Mid(seq, i, 1) = "g" Then
             seq_out = seq_out + "c"
         
+        Else
+            MsgBox ("Error! Incorrect letter is contained")
+            MsgBox (i & "th letter is not in atcg. that letter is '" & Mid(seq, i, 1) & "'.")
+            
         End If
         
     Next
-    seq_out = VBA.StrReverse(seq_out)
+    complement = seq_out
+
+End Function
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Function reverse_complement(seq)
+    
+    seq = VBA.StrReverse(seq_out)
     reverse_complement = seq_out
 
 End Function
